@@ -50,18 +50,25 @@ pwturbo/
 
 ## 安装
 
+推荐使用 [uv](https://docs.astral.sh/uv/) 作为环境管理工具，速度快、依赖隔离干净。
+
 ```bash
-# 从 whl 文件安装
-pip install pwturbo-0.3.0-py3-none-any.whl
+# 安装 uv（如果还没有）
+pip install uv
+
+# 从 whl 文件安装（推荐）
+uv pip install pwturbo-0.3.0-py3-none-any.whl
 
 # 可选依赖
-pip install "pwturbo-0.3.0-py3-none-any.whl[yaml]"   # YAML 配置支持
-pip install "pwturbo-0.3.0-py3-none-any.whl[mfa]"    # TOTP/MFA 自动填写
-pip install "pwturbo-0.3.0-py3-none-any.whl[all]"    # 全部可选依赖
+uv pip install "pwturbo-0.3.0-py3-none-any.whl[yaml]"   # YAML 配置支持
+uv pip install "pwturbo-0.3.0-py3-none-any.whl[mfa]"    # TOTP/MFA 自动填写
+uv pip install "pwturbo-0.3.0-py3-none-any.whl[all]"    # 全部可选依赖
 
 # 安装 Playwright 浏览器
-playwright install chromium
+uv run playwright install chromium
 ```
+
+> 也可以用 pip 安装，将上面的 `uv pip` 替换为 `pip` 即可。
 
 ## 快速开始
 
