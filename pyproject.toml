@@ -1,0 +1,86 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pwturbo"
+version = "0.3.0"
+description = "基于 Playwright 的多线程 Web 自动化框架，支持有头/无头切换、文件下载、OKTA SSO 认证"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+keywords = ["playwright", "automation", "web", "testing", "okta", "sso"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+]
+dependencies = [
+    "playwright>=1.40.0",
+    "requests>=2.31.0",
+    "loguru>=0.7.0",
+]
+
+[project.optional-dependencies]
+# 需要 YAML 配置文件支持时安装
+yaml = ["pyyaml>=6.0"]
+# 需要 MFA/TOTP 自动填写时安装
+mfa = ["pyotp>=2.9.0"]
+# 需要处理 Windows 系统弹窗时安装（仅 Windows）
+win32 = ["pywin32>=306"]
+# 安装全部可选依赖
+all = ["pyyaml>=6.0", "pyotp>=2.9.0"]
+
+[project.urls]
+Homepage = "https://github.com/it-worker-tango/pwturbo"
+Documentation = "https://github.com/it-worker-tango/pwturbo#readme"
+Issues = "https://github.com/it-worker-tango/pwturbo/issues"
+
+# ==================== 构建配置 ====================
+[tool.hatch.build.targets.wheel]
+# 只打包 framework 目录，排除测试网站、测试用例、示例等
+packages = ["framework"]
+
+[tool.hatch.build.targets.sdist]
+# 源码包包含的内容
+include = [
+    "framework/",
+    "README.md",
+    "pyproject.toml",
+    "config.yaml",
+]
+exclude = [
+    "test_site/",
+    "tests/",
+    "examples/",
+    "logs/",
+    "screenshots/",
+    "downloads/",
+    "results/",
+    "*.log",
+    "__pycache__/",
+    "*.pyc",
+]
+
+# ==================== 开发依赖 ====================
+[dependency-groups]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "django>=5.0.0",    # 仅用于运行测试网站
+    "hatchling>=1.21.0",
+]
+
+# ==================== 工具配置 ====================
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.uv]
+# 保留旧字段兼容性（已迁移到 dependency-groups）

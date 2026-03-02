@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制台 - 测试网站</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; margin-bottom: 10px; }
+        .user-info { background: #f8f9fa; padding: 15px; border-radius: 4px; margin-bottom: 30px; }
+        .user-info p { margin: 5px 0; color: #666; }
+        .logout-btn { background: #dc3545; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .logout-btn:hover { background: #c82333; }
+        .data-section { margin-top: 30px; }
+        .data-section h2 { color: #333; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>欢迎, {{ username }}!</h1>
+        <div class="user-info">
+            <p><strong>用户名:</strong> {{ username }}</p>
+            <p><strong>邮箱:</strong> {{ email }}</p>
+        </div>
+        <a href="{% url 'logout' %}" class="logout-btn">退出登录</a>
+        
+        <div class="data-section">
+            <h2>测试数据区域</h2>
+            <p>这是一个受保护的页面，只有登录后才能访问。</p>
+            <p>可用 API 接口：</p>
+            <ul>
+                <li>/api/user/ - 获取用户信息</li>
+                <li>/api/data/ - 获取测试数据</li>
+                <li>/api/download/csv/ - 下载 CSV 文件</li>
+                <li>/api/download/json/ - 下载 JSON 文件</li>
+            </ul>
+            <div style="margin-top: 20px;">
+                <h3 style="margin-bottom: 12px; color: #333;">文件下载测试</h3>
+                <a href="/api/download/csv/?rows=100" id="download-csv"
+                   style="display:inline-block; margin-right:10px; padding:10px 20px;
+                          background:#28a745; color:white; border-radius:4px; text-decoration:none;">
+                    下载 CSV (100行)
+                </a>
+                <a href="/api/download/csv/?rows=10000" id="download-csv-large"
+                   style="display:inline-block; margin-right:10px; padding:10px 20px;
+                          background:#17a2b8; color:white; border-radius:4px; text-decoration:none;">
+                    下载大 CSV (10000行)
+                </a>
+                <a href="/api/download/json/" id="download-json"
+                   style="display:inline-block; padding:10px 20px;
+                          background:#6f42c1; color:white; border-radius:4px; text-decoration:none;">
+                    下载 JSON
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

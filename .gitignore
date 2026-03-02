@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+.eggs/
+
+# 虚拟环境
+.venv/
+venv/
+ENV/
+
+# 构建产物
+build/
+dist/
+sdist/
+
+# 测试缓存
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 运行时产物（不提交，但保留目录结构）
+downloads/*
+!downloads/.gitkeep
+screenshots/*
+!screenshots/.gitkeep
+results/*
+logs/*
+!logs/.gitkeep
+*.log
+*.png
+
+# Django
+test_site/db.sqlite3
+test_site/db.sqlite3-journal
+/static/
+/media/
+
+# Playwright
+playwright-report/
+test-results/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# UV
+.uv/
+.python-version

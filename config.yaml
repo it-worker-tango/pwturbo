@@ -1,0 +1,27 @@
+# Web 自动化框架配置文件
+# 所有配置项均可在代码中通过构造参数覆盖
+
+browser:
+  type: chromium          # 浏览器类型: chromium / firefox / webkit
+  headless: true          # 无头模式: true=不显示窗口, false=显示窗口
+  slow_mo: 0              # 操作延迟(毫秒): 调试时设置 500~1000 方便观察
+
+site:
+  base_url: "http://localhost:8000"   # 测试网站地址
+  login_url: "/accounts/login/"       # 登录页路径
+  dashboard_url: "/dashboard/"        # 登录后跳转路径
+
+credentials:
+  username: "admin"       # 默认测试账号
+  password: "admin123"    # 默认测试密码
+
+logging:
+  level: "INFO"           # 日志级别: DEBUG / INFO / WARNING / ERROR
+  file: "logs/automation.log"
+
+screenshot:
+  dir: "screenshots"      # 截图保存目录
+  on_failure: true        # 失败时自动截图
+
+database:
+  file: "results/test_results.json"   # 测试结果存储文件
