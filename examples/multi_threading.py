@@ -10,7 +10,7 @@
     cd test_site && uv run python manage.py runserver
 """
 import asyncio
-from framework import WebDriver
+from pwturbo import WebDriver
 
 BASE_URL = "http://localhost:8000"
 

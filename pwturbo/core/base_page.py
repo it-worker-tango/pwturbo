@@ -1,7 +1,7 @@
 """页面基类模块 - 用户继承此类来封装自己的页面对象（Page Object 模式）"""
 from loguru import logger
-from framework.core.page import Page
-from framework.elements.element import Element
+from pwturbo.core.page import Page
+from pwturbo.elements.element import Element
 
 
 class BasePage:

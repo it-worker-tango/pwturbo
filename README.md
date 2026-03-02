@@ -17,7 +17,7 @@
 
 ```
 pwturbo/
-├── framework/              # 框架核心（打包发布的内容）
+├── pwturbo/                # 框架核心（打包发布的内容）
 │   ├── core/
 │   │   ├── driver.py       # WebDriver 统一入口（推荐使用）
 │   │   ├── browser.py      # 浏览器管理

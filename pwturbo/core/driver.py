@@ -13,10 +13,10 @@ import asyncio
 from typing import Optional, List
 from loguru import logger
 
-from framework.core.browser import Browser
-from framework.core.page import Page
-from framework.utils.config import Config
-from framework.utils.logger import setup_logger
+from pwturbo.core.browser import Browser
+from pwturbo.core.page import Page
+from pwturbo.utils.config import Config
+from pwturbo.utils.logger import setup_logger
 
 
 class WebDriver:

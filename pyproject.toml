@@ -45,12 +45,12 @@ Issues = "https://github.com/it-worker-tango/pwturbo/issues"
 # ==================== 构建配置 ====================
 [tool.hatch.build.targets.wheel]
 # 只打包 framework 目录，排除测试网站、测试用例、示例等
-packages = ["framework"]
+packages = ["pwturbo"]
 
 [tool.hatch.build.targets.sdist]
 # 源码包包含的内容
 include = [
-    "framework/",
+    "pwturbo/",
     "README.md",
     "pyproject.toml",
     "config.yaml",

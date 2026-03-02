@@ -13,8 +13,8 @@ import asyncio
 from typing import Optional
 from loguru import logger
 
-from framework.core.page import Page
-from framework.elements.element import Element
+from pwturbo.core.page import Page
+from pwturbo.elements.element import Element
 
 
 class OktaHandler:

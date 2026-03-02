@@ -1,7 +1,7 @@
 """有头模式测试 - 运行时你应该能看到浏览器窗口弹出"""
 import asyncio
 import pytest
-from framework import WebDriver, sleep
+from pwturbo import WebDriver, sleep
 
 BASE_URL = "http://localhost:8000"
 

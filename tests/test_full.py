@@ -1,7 +1,7 @@
 """完整集成测试 - 覆盖框架所有核心功能"""
 import asyncio
 import pytest
-from framework import WebDriver, wait_until, retry
+from pwturbo import WebDriver, wait_until, retry
 
 BASE_URL = "http://localhost:8000"
 

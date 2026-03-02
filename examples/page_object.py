@@ -10,7 +10,7 @@ Page Object 模式是自动化测试的最佳实践：
     cd test_site && uv run python manage.py runserver
 """
 import asyncio
-from framework import WebDriver, BasePage
+from pwturbo import WebDriver, BasePage
 
 BASE_URL = "http://localhost:8000"
 

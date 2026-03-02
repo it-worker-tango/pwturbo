@@ -2,7 +2,7 @@
 import os
 import time
 from loguru import logger
-from framework.plugins.base import Plugin
+from pwturbo.plugins.base import Plugin
 
 
 class ScreenshotPlugin(Plugin):

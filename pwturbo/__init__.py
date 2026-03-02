@@ -2,7 +2,7 @@
 pwturbo - 基于 Playwright 的多线程 Web 自动化框架
 
 快速开始：
-    from framework import WebDriver
+    from pwturbo import WebDriver
 
     async with WebDriver(headless=False) as driver:
         page = await driver.new_page()
@@ -14,16 +14,16 @@ pwturbo - 基于 Playwright 的多线程 Web 自动化框架
         resp = page.request_get("http://localhost:8000/api/user/")
         print(resp.json())
 """
-from framework.core.driver import WebDriver
-from framework.core.browser import Browser
-from framework.core.page import Page
-from framework.core.base_page import BasePage
-from framework.core.downloader import FileDownloader, DownloadTask, DownloadStatus
-from framework.elements.element import Element
-from framework.utils.wait import wait_until, retry, sleep, retry_decorator
-from framework.utils.config import Config
-from framework.utils.logger import setup_logger
-from framework.auth.okta import OktaHandler, Win32DialogHandler
+from pwturbo.core.driver import WebDriver
+from pwturbo.core.browser import Browser
+from pwturbo.core.page import Page
+from pwturbo.core.base_page import BasePage
+from pwturbo.core.downloader import FileDownloader, DownloadTask, DownloadStatus
+from pwturbo.elements.element import Element
+from pwturbo.utils.wait import wait_until, retry, sleep, retry_decorator
+from pwturbo.utils.config import Config
+from pwturbo.utils.logger import setup_logger
+from pwturbo.auth.okta import OktaHandler, Win32DialogHandler
 
 __version__ = "0.3.0"
 __all__ = [

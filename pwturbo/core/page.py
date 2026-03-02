@@ -5,7 +5,7 @@ from playwright.async_api import Page as PlaywrightPage, BrowserContext
 from loguru import logger
 import requests
 
-from framework.elements.element import Element
+from pwturbo.elements.element import Element
 
 
 class Page:
