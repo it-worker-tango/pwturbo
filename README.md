@@ -1,6 +1,6 @@
 # pwturbo
 
-基于 Playwright 的多线程 Web 自动化框架，支持有头/无头模式动态切换、文件异步下载、OKTA SSO 认证，具备良好的可扩展性。
+基于 Playwright 的多线程 Web 自动化框架，支持有头/无头模式动态切换、文件异步下载，具备良好的可扩展性。
 
 ## 特性
 
@@ -8,8 +8,6 @@
 - 有头/无头模式运行时动态切换（自动保存 cookies）
 - 登录后通过 requests 携带 cookies 调用 API
 - 文件异步下载，大文件不阻塞主流程
-- OKTA SSO 认证自动化（兼容真实 OKTA 和模拟环境）
-- Windows 系统级弹窗处理（NTLM/Kerberos）
 - 元素操作全封装，不直接暴露 Playwright 原生 API
 - Page Object 基类，方便继承扩展
 - 插件系统，支持截图管理、数据库存储等扩展
@@ -29,7 +27,7 @@ pwturbo/
 │   ├── elements/
 │   │   └── element.py      # 元素操作封装
 │   ├── auth/
-│   │   └── okta.py         # OKTA SSO + Win32 弹窗处理
+│   │   └── okta.py         # SSO 认证扩展（开发中）
 │   ├── plugins/
 │   │   ├── base.py         # 插件基类
 │   │   ├── screenshot.py   # 截图插件
@@ -40,7 +38,7 @@ pwturbo/
 │       └── wait.py         # 等待/重试工具
 ├── tests/                  # 测试用例
 ├── examples/               # 使用示例
-├── test_site/              # Django 测试网站（含模拟 OKTA）
+├── test_site/              # Django 测试网站
 ├── scripts/                # 安装脚本
 ├── dist/                   # 打包产物
 ├── config.yaml             # 配置文件模板
@@ -157,20 +155,6 @@ async with WebDriver() as driver:
     await downloader.wait_for(task_id)
 ```
 
-### OKTA SSO 认证
-
-```python
-from framework import WebDriver
-from framework.auth import OktaHandler
-
-async with WebDriver() as driver:
-    page = await driver.new_page()
-    okta = OktaHandler(username="user@company.com", password="pass")
-
-    # 自动处理 OKTA 重定向和登录（兼容真实/模拟 OKTA）
-    await okta.authenticate(page, app_url="https://app.company.com")
-```
-
 ### 有头/无头模式切换
 
 ```python
@@ -277,9 +261,6 @@ uv build
 | `/api/data/` | 测试数据 API |
 | `/api/download/csv/` | CSV 文件下载 |
 | `/api/download/json/` | JSON 文件下载 |
-| `/okta/authorize/` | 模拟 OKTA 授权页 |
-| `/okta/userinfo/` | 模拟 OKTA userinfo 接口 |
-
 ## 许可证
 
 MIT License
